@@ -1,6 +1,6 @@
 var http = require('http');
-var fs = require('fs');
 var express = require('express');
+var path = require('path');
 
 var bodyParser = require('body-parser');
 
@@ -40,20 +40,14 @@ app.use(bodyParser.json());
 app.use(require("method-override")(methodOverride));
 app.use(myDummyLogger());
 app.use(router);
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(notFound);
 app.use(errorHandler);
 
 
 
 function showIndex(req, res) {
-    fs.readFile('./public/overview/index.html', function (err, data) {
-        if(err) {
-            throw err;
-        }
-        res.set('Content-Type', 'text/html');
-        res.send(200, data);
-    });
+    res.sendFile(path.join(__dirname + '/public/overview/index.html'));
 }
 
 
