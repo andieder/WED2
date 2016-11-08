@@ -9,18 +9,60 @@
 <body>
 	<div class="content">
 		<div class="container1">
-			<button>Create new note</button>
-			<button>Style Switcher</button>
+			<button class="btn btn-default">Create new note</button>
+			<button class="btn btn-default">Style Switcher</button>
 		</div>
 		<div class="container2">
 			<div class="sortButtons">
-				<button>By finish Date</button>
-				<button>By created Date</button>
-				<button>By Importance</button>
+				<button class="btn btn-default">By finish Date</button>
+				<button class="btn btn-default">By created Date</button>
+				<button class="btn btn-default active">By Importance</button>
 			</div>
-			<button>Fertige verbergen</button>
+			<button class="btn btn-default">Fertige verbergen</button>
 		</div>
 		<div class="noteList">
+			<div class="noteElement">
+				<div class="leftContainer">
+					<div class="due">in 7 hours</div>
+					<input type="checkbox" id="finished" disabled> Finished
+				</div>
+				<div class="centerContainer">
+					<div class="titleContainer">
+						<span class="title">Geburi</span>
+						<span class="importance">
+							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+						</span>
+					</div>
+					<textarea disabled></textarea>
+				</div>
+				<div class="rightContainer">
+					<button class="btn btn-default">Edit</button>
+				</div>
+			</div>
+
+			<div class="noteElement">
+				<div class="leftContainer">
+					<div class="due">in 7 hours</div>
+					<input type="checkbox" id="finished" disabled> Finished
+				</div>
+				<div class="centerContainer">
+					<div class="titleContainer">
+						<span class="title">Geburi von</span>
+						<span class="importance">
+							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+						</span>
+					</div>
+					<textarea disabled></textarea>
+				</div>
+				<div class="rightContainer">
+					<button class="btn btn-default">Edit</button>
+				</div>
+			</div>
+
 			<div class="noteElement">
 				<div class="leftContainer">
 					<div class="due">in 7 hours</div>
@@ -38,7 +80,7 @@
 					<textarea disabled></textarea>
 				</div>
 				<div class="rightContainer">
-					<button>Edit</button>
+					<button class="btn btn-default">Edit</button>
 				</div>
 			</div>
 		</div>
