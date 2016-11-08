@@ -13,6 +13,37 @@ button {
 	justify-content: space-between;
 }
 
+.noteList .noteElement {
+	display: flex;
+}
+
+.leftContainer, .rightContainer {
+	flex-grow: 1;
+}
+
+.centerContainer{
+	flex-grow: 8;
+	justify-content: space-between;
+}
+
+.titleContainer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.centerContainer textarea {
+	width: 100%;
+	height: 100%;
+}
+
+.rightContainer button {
+	width: 100%;
+	height: 100%;
+	margin-top: 20px;
+}
+
+
+
 @media (max-width: 800px) {
 	.container2 button {
 		width: 100%;
