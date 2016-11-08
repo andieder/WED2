@@ -19,7 +19,7 @@ function methodOverride(req, res) {
 
  function notFound(req, res, next) {
      res.setHeader("Content-Type", 'text/html');
-     res.send(404, "Sorry, we could not find your page!" )
+     res.send(404, "Sorry, we could not found your page!" )
  }
 
  function errorHandler(err, req, res, next) {
@@ -50,9 +50,13 @@ function showIndex(req, res) {
     res.sendFile(path.join(__dirname + '/public/overview/index.html'));
 }
 
+function showEditform(req, res) {
+    res.sendFile(path.join(__dirname + '/public/editItem/index.html'));
+}
 
 router.get("/", showIndex);
-
+router.get("/newNote", showEditform);
+router.get("/edit", showEditform);
 
 const hostname ='localhost';
 const port = 3000;
