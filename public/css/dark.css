@@ -1,0 +1,17 @@
+body {
+	background-color: black;
+	color: white;
+}
+
+textarea:disabled {
+    background-color: darkblue;
+}
+
+.btn-default {
+	background-color: darkblue;
+	color: white;
+}
+
+.btn-default.active {
+	background-color: lightblue;
+}
