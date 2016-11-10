@@ -8,7 +8,7 @@ var app = express();
 var router = express.Router();
 
 //Session speichern
-//Use Method-override für normalen Seiten aufruf mit req, res und err;
+
 function methodOverride(req, res) {
     if(req.body && typeof req.body == 'object' && '_method' in req.body){
         var method = req.body._method;
@@ -48,15 +48,31 @@ app.use(errorHandler);
 
 function showIndex(req, res) {
     res.sendFile(path.join(__dirname + '/public/overview/index.html'));
+    //load content from db
 }
 
 function showEditform(req, res) {
     res.sendFile(path.join(__dirname + '/public/editItem/index.html'));
 }
 
+function saveNote(req, res) {
+    //Check content in the fields with checkContent
+    //save content in database
+    showIndex(req, res);
+}
+
+function editNote(req, res) {
+    //id from URL
+    //load content from db with id
+    //content fill in form
+    showEditform(req, res);
+}
+
 router.get("/", showIndex);
 router.get("/newNote", showEditform);
 router.get("/edit", showEditform);
+router.post("/notes*", saveNote);
+router.post("/edit*", editNote);
 
 const hostname ='localhost';
 const port = 3000;
