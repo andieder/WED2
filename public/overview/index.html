@@ -3,8 +3,13 @@
 <head lang="en">
 	<meta charset="UTF-8">
 	<title>Note</title>
-	<link rel="stylesheet" type="text/css" href="./overview/style.css">
+	<script src="overview/libs/handlebars-v4.0.5.js"></script>
+	<script src="overview/libs/jquery-2.1.4.js"></script>
+
+	<script src="overview/scripts/handlebars-helpers.js"></script>
+	<script src="overview/scripts/index.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./overview/style.css">
 </head>
 <body>
 	<div class="content">
@@ -20,70 +25,33 @@
 			</div>
 			<button class="btn btn-default">Fertige verbergen</button>
 		</div>
-		<div class="noteList">
-			<div class="noteElement">
-				<div class="leftContainer">
-					<div class="due">in 7 hours</div>
-					<input type="checkbox" id="finishOne" disabled> Finished
-				</div>
-				<div class="centerContainer">
-					<div class="titleContainer">
-						<span class="title">Geburi</span>
-						<span class="importance">
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-						</span>
-					</div>
-					<textarea disabled></textarea>
-				</div>
-				<div class="rightContainer">
-					<button class="btn btn-default" onclick="location.href='./edit';">Edit</button>
-				</div>
-			</div>
+		<div id="noteList" class="noteList"></div>
+	</div>
 
-			<div class="noteElement">
-				<div class="leftContainer">
-					<div class="due">in 7 hours</div>
-					<input type="checkbox" id="finishTwo" disabled> Finished
-				</div>
-				<div class="centerContainer">
-					<div class="titleContainer">
-						<span class="title">Geburi von</span>
-						<span class="importance">
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-						</span>
-					</div>
-					<textarea disabled></textarea>
-				</div>
-				<div class="rightContainer">
-					<button class="btn btn-default" onclick="location.href='./edit';">Edit</button>
-				</div>
-			</div>
 
-			<div class="noteElement">
-				<div class="leftContainer">
-					<div class="due">in 7 hours</div>
-					<input type="checkbox" id="finishThree" disabled> Finished
+	<script id="noteElement-template" type="text/x-handlebars-template">
+		{{#each notes}}
+		<div class="noteElement">
+			<div class="leftContainer">
+				<div class="due">{{due}}</div>
+				<input type="checkbox" id="finished" {{#if finished}}checked{{/if}} disabled> Finished
+			</div>
+			<div class="centerContainer">
+				<div class="titleContainer">
+					<span class="title">{{title}}</span>
+					<span class="importance">
+						{{#times importance}}
+						<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+						{{/times}}
+					</span>
 				</div>
-				<div class="centerContainer">
-					<div class="titleContainer">
-						<span class="title">Geburi von Sarah</span>
-						<span class="importance">
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-						</span>
-					</div>
-					<textarea disabled></textarea>
-				</div>
-				<div class="rightContainer">
-					<button class="btn btn-default" onclick="location.href='./edit';">Edit</button>
-				</div>
+				<textarea disabled>{{desc}}</textarea>
+			</div>
+			<div class="rightContainer">
+				<button class="btn btn-default" onclick="location.href='./edit';">Edit</button>
 			</div>
 		</div>
-	</div>
+		{{/each}}
+	</script>
 </body>
 </html>

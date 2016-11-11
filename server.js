@@ -15,25 +15,25 @@ function methodOverride(req, res) {
         delete req.body._method;
         return method;
     }
- }
+}
 
- function notFound(req, res, next) {
-     res.setHeader("Content-Type", 'text/html');
-     res.send(404, "Sorry, we could not found your page!" )
- }
+function notFound(req, res, next) {
+   res.setHeader("Content-Type", 'text/html');
+   res.send(404, "Sorry, we could not found your page!" )
+}
 
- function errorHandler(err, req, res, next) {
-     res.status(500).end(err.message);
- }
+function errorHandler(err, req, res, next) {
+   res.status(500).end(err.message);
+}
 
- function myDummyLogger(options) {
-     options = options ? options : {};
+function myDummyLogger(options) {
+   options = options ? options : {};
 
-     return function myInnerDummyLogger(req, res, next) {
-         console.log(req.method +":"+ req.url);
-         next();
-     }
- }
+   return function myInnerDummyLogger(req, res, next) {
+       console.log(req.method +":"+ req.url);
+       next();
+   }
+}
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
@@ -73,6 +73,35 @@ router.get("/newNote", showEditform);
 router.get("/edit", showEditform);
 router.post("/notes*", saveNote);
 router.post("/edit*", editNote);
+
+router.get('/api/notes', function (req, res) {
+    var data = {
+        "notes": [ 
+      {
+          "title":"Geburi 1",
+          "desc":"geburtstagsfest",
+          "importance":"1",
+          "due":"in 5 hours",
+          "finished":false
+      },
+      {
+          "title":"Geburi 2",
+          "desc":"geburtstagsfestfest",
+          "importance":"5",
+          "due":"in 10 hours",
+          "finished":true
+      },
+      {
+          "title":"Geburi 3",
+          "desc":"geburtstagsfestfestfests",
+          "importance":"3",
+          "due":"in 8 hours",
+          "finished":false
+      }
+      ]
+  };
+  res.json(data);
+});
 
 const hostname ='localhost';
 const port = 3000;
