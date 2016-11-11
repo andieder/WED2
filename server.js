@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var router = express.Router();
 
+var darkTheme = false;
+
 //Session speichern
 
 function methodOverride(req, res) {
@@ -47,12 +49,21 @@ app.use(errorHandler);
 
 
 function showIndex(req, res) {
+    if(req.query.switchTheme) darkTheme = !darkTheme;
     res.sendFile(path.join(__dirname + '/public/overview/index.html'));
     //load content from db
 }
 
 function showEditform(req, res) {
     res.sendFile(path.join(__dirname + '/public/editItem/index.html'));
+}
+
+function showDarkCSS(req, res) {
+    if(darkTheme) {
+        res.sendFile(path.join(__dirname + '/public/css/dark.css'));
+    } else {
+        res.send("");
+    }
 }
 
 function saveNote(req, res) {
@@ -68,15 +79,9 @@ function editNote(req, res) {
     showEditform(req, res);
 }
 
-router.get("/", showIndex);
-router.get("/newNote", showEditform);
-router.get("/edit", showEditform);
-router.post("/notes*", saveNote);
-router.post("/edit*", editNote);
-
-router.get('/api/notes', function (req, res) {
+function getData() {
     var data = {
-        "notes": [ 
+        "notes": [
       {
           "title":"Geburi 1",
           "desc":"geburtstagsfest",
@@ -99,8 +104,19 @@ router.get('/api/notes', function (req, res) {
           "finished":false
       }
       ]
-  };
-  res.json(data);
+    };
+    return data;
+}
+
+router.get("/", showIndex);
+router.get("/newNote", showEditform);
+router.get("/edit", showEditform);
+router.get("/css/dark.css", showDarkCSS);
+router.post("/notes*", saveNote);
+router.post("/edit*", editNote);
+
+router.get('/api/notes', function (req, res) {
+  res.json(getData());
 });
 
 const hostname ='localhost';
