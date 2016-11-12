@@ -1,3 +1,7 @@
+body {
+	padding: 10px;
+}
+
 button {
 	width: 200px;
 }
@@ -13,32 +17,35 @@ button {
 	justify-content: space-between;
 }
 
-.noteList .noteElement {
+.noteElement {
+	border: 1px #ccc dotted;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.upperContainer {
 	display: flex;
-}
-
-.leftContainer, .rightContainer {
-	flex-grow: 1;
-}
-
-.centerContainer{
-	flex-grow: 8;
-	justify-content: space-between;
+	flex-flow: row wrap;
 }
 
 .titleContainer {
-	display: flex;
-	justify-content: space-between;
+	flex: 1 100%;
 }
 
-.centerContainer textarea {
-	width: 100%;
+.due, .importance { 
+	flex: 1 15%;
 }
 
-.rightContainer button {
+.importance {
+	text-align: right;
+}
+
+.finished {
+	font-weight: bold;
+}
+
+.desc textarea {
 	width: 100%;
-	height: 65%;
-	margin-top: 20px;
 }
 
 .info {
@@ -49,13 +56,49 @@ button {
 }
 
 
+@media (min-width: 600px) {
+	.due {
+		flex: 0 150px;
+		order: 1;
+	} 
 
-@media (max-width: 800px) {
+	.titleContainer {
+		flex: 1 15%;
+		order: 2;
+	}
+
+	.importance {
+		order: 3;
+	}
+}
+
+
+@media (max-width: 830px) {
 	.container2 button {
 		width: 100%;
 	}
 
 	.container2 {
 		display: block;
+	}
+}
+
+@media (min-width: 831px) {
+	.importance {
+		flex: 1 30%;
+		padding-right: 200px;
+	}
+
+	.lowerContainer {
+		display: flex;
+		flex-flow: row wrap;
+	}
+
+	.finished, .btnEdit {
+		flex: 0 150px;
+	}
+
+	.desc { 
+		flex: 1 20%;
 	}
 }
