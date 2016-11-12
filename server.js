@@ -8,6 +8,9 @@ var app = express();
 var router = express.Router();
 
 var darkTheme = false;
+var orderBy = "";
+var orderAsc = true;
+var filterFinished = false;
 
 //Session speichern
 
@@ -50,8 +53,21 @@ app.use(errorHandler);
 
 function showIndex(req, res) {
     if(req.query.switchTheme) darkTheme = !darkTheme;
+    if(req.query.switchFilter) filterFinished = !filterFinished;
+    if (typeof req.query.orderBy != 'undefined') {
+	    if(orderBy == req.query.orderBy) {
+	    	if(orderAsc) {
+	    		orderAsc = false;
+	    	} else {
+	    		orderBy = "";
+	    		orderAsc = true;
+	    	}
+	    } else {
+	    	orderBy = req.query.orderBy;
+	    }
+    }
+
     res.sendFile(path.join(__dirname + '/public/overview/index.html'));
-    //load content from db
 }
 
 function showEditform(req, res) {
@@ -80,7 +96,31 @@ function editNote(req, res) {
 }
 
 function getData() {
+
+	//ToDo: Implement order function
+    switch(orderBy) {
+	    case 'finishDate':
+	        break;
+	    case 'createdDate':
+	        break;
+	    case 'importance':
+	        break;
+	    default:	        
+	}
+
+	//sort out finished items if filterFinished
+	console.log(filterFinished);
+
+	
+    //load content from db
+
+	//dummy data
     var data = {
+    	"orderByFinishDate": false,
+    	"orderByCreatedDate": true,
+    	"orderByImportance": false,
+    	"orderAsc": true,
+    	"filterFinished": false,
         "notes": [
       {
           "title":"Geburi 1",
@@ -99,8 +139,8 @@ function getData() {
       {
           "title":"Geburi 3",
           "desc":"geburtstagsfestfestfests",
-          "importance":"3",
-          "due":"in 8 hours",
+          "importance":"10",
+          "due":"",
           "finished":false
       }
       ]

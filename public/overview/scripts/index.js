@@ -15,13 +15,13 @@
     }
 
     $(function(){
-        var container = $("#noteList");
+        var handlebarsContainer = $("#handlebarsContainer");
         //var monthsDropDown = $("#number-select");
-        var createHtmlFromDataFn = Handlebars.compile($("#noteElement-template").html());
+        var createHtmlFromData = Handlebars.compile($("#handlebars-template").html());
 
         function renderData(data){
             //data.aktienkurse.sort((a,b) =>  orderDesc ? compare(a.firma, b.firma) : compare(b.firma, a.firma));
-            container.html(createHtmlFromDataFn(data));
+            handlebarsContainer.html(createHtmlFromData(data));
         }
 
         function getDataAndRenderTable(){
