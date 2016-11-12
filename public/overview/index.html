@@ -31,6 +31,7 @@
 
 
 	<script id="noteElement-template" type="text/x-handlebars-template">
+	{{#if notes}}
 		{{#each notes}}
 		<div class="noteElement">
 			<div class="leftContainer">
@@ -53,6 +54,9 @@
 			</div>
 		</div>
 		{{/each}}
+	{{else}}
+		<div class="bg-info info">Keine Todo gefunden</p>
+	{{/if}}
 	</script>
 </body>
 </html>

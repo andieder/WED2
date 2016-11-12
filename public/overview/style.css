@@ -41,6 +41,13 @@ button {
 	margin-top: 20px;
 }
 
+.info {
+	line-height: 50px;
+	min-height: 50px;
+	margin-top: 10px;
+	padding-left: 20px;
+}
+
 
 
 @media (max-width: 800px) {
