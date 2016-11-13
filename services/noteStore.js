@@ -9,7 +9,7 @@ function Note(title, description, priority, dueTo, state) {
     this.state = state;
 }
 
-function addNote(title, description, priority, dueTo, state, callback) {
+function publicAddNote(title, description, priority, dueTo, state, callback) {
     var note = new Note(title, description, priority, dueTo, state);
     db.insert(note, function (err, newDoc) {
         if(callback){
@@ -17,3 +17,24 @@ function addNote(title, description, priority, dueTo, state, callback) {
         }
     });
 }
+
+function publicUpdateNote(id,title, description, priority, dueTo, state, callback) {
+    db.update({_id: id}, {$set: {title: title}, $set: {description: description}, $set: {priority: priority}, $set: {dueTo: dueTo}, $set:{state: state}}, {}, function (err, doc) {
+        publicGet(id, callback);
+    });
+}
+
+function publicGet(id, callback) {
+    db.findOne({_id: id}, function (err, doc) {
+         callback(err, doc);
+    });
+}
+
+function publicGetAll() {
+    db.find({}, function (err, doc) {
+        callback(err, doc);
+    });
+}
+
+
+module.exports = {add : publicAddNote, edit : publicUpdateNote, get : publicGet, all : publicGetAll};

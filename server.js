@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var router = express.Router();
 
+var store = require('./services/noteStore');
+
 var darkTheme = false;
 var orderBy = "";
 var orderAsc = true;
@@ -83,9 +85,10 @@ function showDarkCSS(req, res) {
 }
 
 function saveNote(req, res) {
-    //Check content in the fields with checkContent
-    //save content in database
-    showIndex(req, res);
+    var state = req.body.done ? true : false;
+    store.add(req.body.title, req.body.desc, req.body.priority, req.body.dueTo, state, function (err, doc) {
+        showIndex(req, res);
+    });
 }
 
 function editNote(req, res) {
