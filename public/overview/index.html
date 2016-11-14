@@ -43,10 +43,10 @@
 				<div class="noteElement">
 					<div class="upperContainer">
 
-						<div class="due">{{due}}</div>
+						<div class="due">{{dueTo}}</div>
 
 						<div class="importance">
-							{{#times importance}}
+							{{#times priority}}
 							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
 							{{/times}}
 						</div>
@@ -59,11 +59,11 @@
 					<div class="lowerContainer">
 
 						<div class="finished">
-							<input type="checkbox" id="finished" {{#if finished}}checked{{/if}} disabled> Finished
+							<input type="checkbox" id="finished" {{#if state}}checked{{/if}} disabled> Finished
 						</div>
 
 						<div class="desc">
-							<textarea disabled>{{desc}}</textarea>
+							<textarea disabled>{{description}}</textarea>
 						</div>
 
 						<div class="btnEdit">

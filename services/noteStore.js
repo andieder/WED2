@@ -30,11 +30,11 @@ function publicGet(id, callback) {
     });
 }
 
-function publicGetAll() {
+function publicGetAll(callback) {
     db.find({}, function (err, doc) {
         callback(err, doc);
     });
 }
 
 
-module.exports = {add : publicAddNote, edit : publicUpdateNote, get : publicGet, all : publicGetAll};
+module.exports = {add : publicAddNote, edit : publicUpdateNote, get : publicGet, getAll : publicGetAll};

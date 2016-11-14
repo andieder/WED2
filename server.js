@@ -69,7 +69,7 @@ function showIndex(req, res) {
 	    }
     }
 
-    res.sendFile(path.join(__dirname + '/public/overview/index.html'));
+   res.sendFile(path.join(__dirname + '/public/overview/index.html'));
 }
 
 function showEditform(req, res) {
@@ -112,10 +112,21 @@ function getData() {
 	}
 
 	//sort out finished items if filterFinished
-	console.log(filterFinished);
+	console.log("1");
+    console.log(filterFinished);
 
 	
     //load content from db
+    console.log("2");
+
+    //var allNotes;
+    var listNotes = console.log(store.getAll(function (err, content) {
+        console.log(content);
+        //allNotes = content;
+    }));
+
+    console.log("3");
+    console.log(listNotes);
 
 	//dummy data
     var data = {
@@ -127,27 +138,32 @@ function getData() {
         "notes": [
       {
           "title":"Geburi 1",
-          "desc":"geburtstagsfest",
-          "importance":"1",
-          "due":"in 5 hours",
-          "finished":false
+          "description":"geburtstagsfest",
+          "priority":"1",
+          "dueTo":"in 5 hours",
+          "state":false
       },
       {
           "title":"Geburi 2",
-          "desc":"geburtstagsfestfest",
-          "importance":"5",
-          "due":"in 10 hours",
-          "finished":true
+          "description":"geburtstagsfestfest",
+          "priority":"5",
+          "dueTo":"in 10 hours",
+          "state":true
       },
       {
           "title":"Geburi 3",
-          "desc":"geburtstagsfestfestfests",
-          "importance":"10",
-          "due":"",
-          "finished":false
+          "description":"geburtstagsfestfestfests",
+          "priority":"10",
+          "dueTo":"",
+          "state":false
       }
-      ]
+    ]
     };
+    store.getAll(function (err, allNotes) {
+        data.notes = allNotes;
+        console.log(data.notes);
+    });
+    console.log(data);
     return data;
 }
 
