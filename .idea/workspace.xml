@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8451ae6d-01e0-4b7f-aab1-ea542d92d5ff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/noteController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/noteRoutes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/noteController.js" afterPath="$PROJECT_DIR$/controller/noteController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/noteRoutes.js" afterPath="$PROJECT_DIR$/routes/noteRoutes.js" />
     </list>
     <ignored path="Miniprojekt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,8 +40,8 @@
       <file leaf-file-name="noteRoutes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/noteRoutes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -51,8 +50,8 @@
       <file leaf-file-name="noteController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/noteController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1313">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -149,9 +148,9 @@
         <option value="$PROJECT_DIR$/public/overview/index.html" />
         <option value="$PROJECT_DIR$/services/noteStore.js" />
         <option value="$PROJECT_DIR$/data/notes.db" />
-        <option value="$PROJECT_DIR$/controller/noteController.js" />
-        <option value="$PROJECT_DIR$/routes/noteRoutes.js" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/routes/noteRoutes.js" />
+        <option value="$PROJECT_DIR$/controller/noteController.js" />
       </list>
     </option>
   </component>
@@ -507,12 +506,12 @@
       <workItem from="1478260117086" duration="79000" />
       <workItem from="1478382611450" duration="22458000" />
       <workItem from="1478779508187" duration="12163000" />
-      <workItem from="1479055540734" duration="19052000" />
+      <workItem from="1479055540734" duration="20380000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55390000" />
+    <option name="totallyTimeSpent" value="56718000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -808,16 +807,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/noteRoutes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="170">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/noteController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1313">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
           <folding />
         </state>
       </provider>

@@ -52,7 +52,13 @@ module.exports.editNote = function(req, res) {
     showEditform(req, res);
 };
 
-module.exports.getData = function(callback) {
+module.exports.returnJSON = function (req, res) {
+    getData(function(content){
+        res.json(content);
+    });
+};
+
+function getData(callback) {
 
     //ToDo: Implement order function
     switch(orderBy) {
@@ -103,11 +109,9 @@ module.exports.getData = function(callback) {
 
     //load content from db
 
-    var foo = function (err, allNotes) {
+    store.getAll(function (err, allNotes) {
         data.notes = allNotes;
         callback(data);
-    };
+    });
 
-    store.getAll(foo);
-
-};
+}
