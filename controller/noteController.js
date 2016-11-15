@@ -27,7 +27,11 @@ module.exports.showIndex = function(req, res) {
 };
 
 module.exports.showEditform = function(req, res) {
-    res.sendFile(path.join(__dirname + '/../public/editItem/index.html'));
+   /* if(req.params.id){
+        res.sendFile(path.join(__dirname + '/../public/editItem/index.html?noteid'));
+    } else {*/
+        res.sendFile(path.join(__dirname + '/../public/editItem/index.html'));
+    //}
 };
 
 module.exports.showDarkCSS = function(req, res) {
@@ -41,11 +45,16 @@ module.exports.showDarkCSS = function(req, res) {
 module.exports.saveNote = function(req, res) {
     var state = req.body.done ? true : false;
     store.add(req.body.title, req.body.desc, req.body.priority, req.body.dueTo, state, function (err, doc) {
-        res.redirect('/');
+        res.redirect("/");
     });
 };
 
 module.exports.editNote = function(req, res) {
+    console.log(req.params.id);
+    store.get(req.params.id, function (err, notes) {
+        res.red
+    })
+
     //id from URL
     //load content from db with id
     //content fill in form

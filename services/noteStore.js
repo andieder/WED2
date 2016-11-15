@@ -7,6 +7,7 @@ function Note(title, description, priority, dueTo, state) {
     this.priority = priority;
     this.dueTo = dueTo;
     this.state = state;
+    this.createDate = JSON.stringify(new Date());
 }
 
 function publicAddNote(title, description, priority, dueTo, state, callback) {
@@ -18,7 +19,7 @@ function publicAddNote(title, description, priority, dueTo, state, callback) {
     });
 }
 
-function publicUpdateNote(id,title, description, priority, dueTo, state, callback) {
+function publicUpdateNote(id, title, description, priority, dueTo, state, callback) {
     db.update({_id: id}, {$set: {title: title}, $set: {description: description}, $set: {priority: priority}, $set: {dueTo: dueTo}, $set:{state: state}}, {}, function (err, doc) {
         publicGet(id, callback);
     });
