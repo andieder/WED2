@@ -23,7 +23,9 @@ module.exports.showIndex = function(req, res) {
         }
     }
 
-    res.sendFile(path.join(__dirname + '/../public/overview/index.html'));
+    getData(function(content){
+        res.render("index.hbs", content);
+    });
 };
 
 module.exports.showEditform = function(req, res) {
