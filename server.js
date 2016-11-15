@@ -1,18 +1,23 @@
 var http = require('http');
+var hbs = require('express-hbs');
 var express = require('express');
 var path = require('path');
-var hbs = require('express-hbs');
 
 var bodyParser = require('body-parser');
 
 var app = express();
 
+hbs.registerHelper('times', function(n, block) {
+    var accum = '';
+    for(var i = 0; i < n; ++i)
+        accum += block.fn(i);
+    return accum;
+});
+//app.engine('hbs', hbs.express4({ partialsDir: __dirname + '/views/partials'}));
+app.engine('hbs', hbs.express4());
+app.set('view engine', 'hbs');
 
 
-app.engine('hbs2', hbs.express4());
-
-app.set('view engine', 'hbs2');
-app.set('views', __dirname + '/views');
 
 //Session speichern
 
@@ -50,14 +55,6 @@ app.use(require('./routes/noteRoutes.js'));
 app.use(express.static(path.join(__dirname, '/public/')));
 app.use(notFound);
 app.use(errorHandler);
-
-
-hbs.registerHelper('times', function(n, block) {
-    var accum = '';
-    for(var i = 0; i < n; ++i)
-        accum += block.fn(i);
-    return accum;
-});
 
 const hostname ='localhost';
 const port = 3000;
