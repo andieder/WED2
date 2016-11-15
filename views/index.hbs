@@ -10,22 +10,22 @@
 <body>
 	<div class="content">
 		<div class="container1">
-			<button class="btn btn-default" onclick="location.href='./editItem/index.html';" value="Create new note">Create new note</button>
-			<button class="btn btn-default" onclick="location.href='/?switchTheme=true';">Style Switcher</button>
+			<a href='./editItem/index.html' class="btn btn-default">Create new note</a>
+			<a href='/?switchTheme=true' class="btn btn-default">Style Switcher</a>
 		</div>
 		<div class="container2">
 			<div class="sortButtons">
-				<button class="btn btn-default {{#if orderByFinishDate}}active{{/if}}" onclick="location.href='/?orderBy=finishDate';">
+				<a href='/?orderBy=finishDate' class="btn btn-default {{#if orderByFinishDate}}active{{/if}}">
 					By finish Date {{#if orderByFinishDate}}{{#if orderAsc}}<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>{{else}}<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>{{/if}}{{/if}}
-				</button>
-				<button class="btn btn-default {{#if orderByCreatedDate}}active{{/if}}" onclick="location.href='/?orderBy=createdDate';">
+				</a>
+				<a href='/?orderBy=createdDate' class="btn btn-default {{#if orderByCreatedDate}}active{{/if}}">
 					By created Date {{#if orderByCreatedDate}}{{#if orderAsc}}<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>{{else}}<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>{{/if}}{{/if}}
-				</button>
-				<button class="btn btn-default {{#if orderByImportance}}active{{/if}}" onclick="location.href='/?orderBy=importance';">
+				</a>
+				<a href='/?orderBy=importance' class="btn btn-default {{#if orderByImportance}}active{{/if}}">
 					By Importance {{#if orderByImportance}}{{#if orderAsc}}<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>{{else}}<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>{{/if}}{{/if}}
-				</button>
+				</a>
 			</div>
-			<button class="btn btn-default {{#if filterFinished}}active{{/if}}" onclick="location.href='/?switchFilter=true';">Fertige verbergen</button>
+			<a href='/?switchFilter=true' class="btn btn-default {{#if filterFinished}}active{{/if}}">Fertige verbergen</a>
 		</div>
 		<div id="noteList" class="noteList">
 			{{#if notes}}
@@ -57,7 +57,7 @@
 						</div>
 
 						<div class="btnEdit">
-							<button class="btn btn-default" onclick="location.href='./edit/{{_id}}';">Edit</button>
+							<a href='./edit/{{_id}}' class="btn btn-default">Edit</a>
 						</div>
 
 					</div>
