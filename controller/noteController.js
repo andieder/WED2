@@ -29,11 +29,15 @@ module.exports.showIndex = function(req, res) {
 };
 
 module.exports.showEditform = function(req, res) {
-   /* if(req.params.id){
-        res.sendFile(path.join(__dirname + '/../public/editItem/index.html?noteid'));
-    } else {*/
-        res.sendFile(path.join(__dirname + '/../public/editItem/index.html'));
-    //}
+   if(req.params.id){
+        //res.sendFile(path.join(__dirname + '/../public/editItem/index.html?noteid'));
+       store.get(req.params.id, function (err, notes) {
+           res.render("newNote.hbs", notes)
+       });
+    } else {
+        //res.sendFile(path.join(__dirname + '/../public/editItem/index.html'));
+       res.render("newNote.hbs");
+    }
 };
 
 module.exports.showDarkCSS = function(req, res) {
@@ -53,9 +57,7 @@ module.exports.saveNote = function(req, res) {
 
 module.exports.editNote = function(req, res) {
     console.log(req.params.id);
-    store.get(req.params.id, function (err, notes) {
-        res.red
-    })
+    //update
 
     //id from URL
     //load content from db with id
