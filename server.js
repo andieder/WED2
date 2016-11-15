@@ -13,7 +13,26 @@ hbs.registerHelper('times', function(n, block) {
         accum += block.fn(i);
     return accum;
 });
-//app.engine('hbs', hbs.express4({ partialsDir: __dirname + '/views/partials'}));
+
+hbs.registerHelper('dueInDays', function(n, block) {
+    var diffDays = "";
+    if(n != "") {
+        var today = new Date();
+        var due = new Date(n);
+
+        var timeDiff = due.getTime() - today.getTime();
+        diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+        if(diffDays < 0) {
+            diffDays = "overdue";
+        } else if (diffDays == 0) {
+            diffDays = "today";
+        } else {
+            diffDays = "in " + diffDays + " day(s)";
+        }
+    }
+    return diffDays;
+});
+
 app.engine('hbs', hbs.express4());
 app.set('view engine', 'hbs');
 
