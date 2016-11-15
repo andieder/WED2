@@ -3,11 +3,6 @@
 <head lang="en">
 	<meta charset="UTF-8">
 	<title>Note</title>
-	<script src="overview/libs/handlebars-v4.0.5.js"></script>
-	<script src="overview/libs/jquery-2.1.4.js"></script>
-
-	<script src="overview/scripts/handlebars-helpers.js"></script>
-	<script src="overview/scripts/index.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./overview/style.css">
 	<link rel="stylesheet" type="text/css" href="./css/dark.css">
@@ -18,11 +13,6 @@
 			<button class="btn btn-default" onclick="location.href='./editItem/index.html';" value="Create new note">Create new note</button>
 			<button class="btn btn-default" onclick="location.href='/?switchTheme=true';">Style Switcher</button>
 		</div>
-		<div id="handlebarsContainer"></div>
-	</div>
-
-
-	<script id="handlebars-template" type="text/x-handlebars-template">
 		<div class="container2">
 			<div class="sortButtons">
 				<button class="btn btn-default {{#if orderByFinishDate}}active{{/if}}" onclick="location.href='/?orderBy=finishDate';">
@@ -46,9 +36,13 @@
 						<div class="due">{{dueTo}}</div>
 
 						<div class="importance">
+<!--
+{{!--
 							{{#times priority}}
 							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
 							{{/times}}
+--}}
+-->
 						</div>
 
 						<div class="titleContainer">
@@ -77,6 +71,6 @@
 				<div class="bg-info info">Keine Todo gefunden</p>
 			{{/if}}
 		</div>
-	</script>
+	</div>
 </body>
 </html>
