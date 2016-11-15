@@ -20,6 +20,7 @@ module.exports.showIndex = function(req, res) {
             }
         } else {
             orderBy = req.query.orderBy;
+                orderAsc = true;
         }
     }
     getData(function(content){
@@ -60,61 +61,59 @@ module.exports.updateNote = function(req, res) {
     });
 };
 
+function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key];
+        var y = b[key];
+
+        if(orderAsc) {
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        } else {
+            return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+        }
+    });
+}
 
 function getData(callback) {
 
-    //ToDo: Implement order function
-    switch(orderBy) {
-        case 'finishDate':
-            break;
-        case 'createdDate':
-            break;
-        case 'importance':
-            break;
-        default:
-    }
-
-    //sort out finished items if filterFinished
-    console.log(filterFinished);
-
-
-    //dummy data
+    //default data
     var data = {
         "orderByFinishDate": false,
-        "orderByCreatedDate": true,
+        "orderByCreatedDate": false,
         "orderByImportance": false,
         "orderAsc": true,
         "filterFinished": false,
-        "notes": [
-            {
-                "title":"Geburi 1",
-                "description":"geburtstagsfest",
-                "priority":"1",
-                "dueTo":"in 5 hours",
-                "state":false
-            },
-            {
-                "title":"Geburi 2",
-                "description":"geburtstagsfestfest",
-                "priority":"5",
-                "dueTo":"in 10 hours",
-                "state":true
-            },
-            {
-                "title":"Geburi 3",
-                "description":"geburtstagsfestfestfests",
-                "priority":"10",
-                "dueTo":"",
-                "state":false
-            }
-        ]
+        "notes": []
     };
 
-    //load content from db
+    var sort = function (err, allNotes) {
+        switch(orderBy) {
+            case 'finishDate':
+                data.orderByFinishDate = true;
+                sortByKey(allNotes, "dueTo");
+                break;
+            case 'createdDate':
+                data.orderByCreatedDate = true;
+                sortByKey(allNotes, "createDate");
+                break;
+            case 'importance':
+                data.orderByImportance = true;
+                sortByKey(allNotes, "priority");
+                break;
+            default:
+        }
 
-    store.getAll(function (err, allNotes) {
+        data.orderAsc = orderAsc;
+        data.filterFinished = filterFinished;
+
         data.notes = allNotes;
         callback(data);
-    });
+    };
+
+    if(filterFinished) {
+        store.getUnfinished(sort);
+    } else {
+        store.getAll(sort);
+    }
 
 }

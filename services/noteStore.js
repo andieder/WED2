@@ -37,5 +37,11 @@ function publicGetAll(callback) {
     });
 }
 
+function publicGetUnfinished(callback) {
+    db.find({state:false }, function (err, doc) {
+        callback(err, doc);
+    });
+}
 
-module.exports = {add : publicAddNote, edit : publicUpdateNote, get : publicGet, getAll : publicGetAll};
+
+module.exports = {add : publicAddNote, edit : publicUpdateNote, get : publicGet, getAll : publicGetAll, getUnfinished : publicGetUnfinished};
