@@ -58,19 +58,8 @@ module.exports.updateNote = function(req, res) {
         res.redirect("/");
 
     });
-    //update
-
-    //id from URL
-    //load content from db with id
-    //content fill in form
-//    showEditform(req, res);
 };
 
-module.exports.returnJSON = function (req, res) {
-    getData(function(content){
-        res.json(content);
-    });
-};
 
 function getData(callback) {
 

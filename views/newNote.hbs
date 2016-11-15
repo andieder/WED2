@@ -2,12 +2,11 @@
 <html>
     <head lang="en">
         <meta charset="UTF-8">
-    <title>Neue Todo</title>
+    <title>{{#if _id}}Todo ändern{{else}}Neue Todo{{/if}}</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/dark.css">
 </head>
 <body>
-
 <form action="/notes{{#if _id}}/edit/{{_id}}{{/if}}" method="post" id="todo" class="form-horizontal">
     <h1>{{#if _id}}Todo ändern{{else}}Neue Todo{{/if}}</h1>
     <hr>
@@ -53,6 +52,5 @@
         </div>
     </div>
 </form>
-
 </body>
 </html>

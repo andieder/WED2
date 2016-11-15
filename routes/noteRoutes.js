@@ -8,6 +8,5 @@ router.get("/css/dark.css", noteslist.showDarkCSS);
 router.post("/notes", noteslist.saveNote);
 router.post("/notes/edit/:id", noteslist.updateNote);
 router.get("/edit/:id/", noteslist.showEditform);
-router.get('/api/notes', noteslist.returnJSON);
 
 module.exports = router;
