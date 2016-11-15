@@ -41,7 +41,7 @@ module.exports.showDarkCSS = function(req, res) {
 module.exports.saveNote = function(req, res) {
     var state = req.body.done ? true : false;
     store.add(req.body.title, req.body.desc, req.body.priority, req.body.dueTo, state, function (err, doc) {
-        showIndex(req, res);
+        res.redirect('/');
     });
 };
 
