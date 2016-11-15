@@ -20,7 +20,7 @@ function publicAddNote(title, description, priority, dueTo, state, callback) {
 }
 
 function publicUpdateNote(id, title, description, priority, dueTo, state, callback) {
-    db.update({_id: id}, {$set: {title: title}, $set: {description: description}, $set: {priority: priority}, $set: {dueTo: dueTo}, $set:{state: state}}, {}, function (err, doc) {
+    db.update({_id: id}, {$set: {title: title, description: description, priority: priority, dueTo: dueTo, state: state}}, {}, function (err, doc) {
         publicGet(id, callback);
     });
 }

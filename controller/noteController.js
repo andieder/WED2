@@ -22,7 +22,6 @@ module.exports.showIndex = function(req, res) {
             orderBy = req.query.orderBy;
         }
     }
-
     getData(function(content){
         res.render("index.hbs", content);
     });
@@ -30,12 +29,10 @@ module.exports.showIndex = function(req, res) {
 
 module.exports.showEditform = function(req, res) {
    if(req.params.id){
-        //res.sendFile(path.join(__dirname + '/../public/editItem/index.html?noteid'));
-       store.get(req.params.id, function (err, notes) {
-           res.render("newNote.hbs", notes)
+       store.get(req.params.id, function (err, note) {
+           res.render("newNote.hbs", note)
        });
     } else {
-        //res.sendFile(path.join(__dirname + '/../public/editItem/index.html'));
        res.render("newNote.hbs");
     }
 };
@@ -55,14 +52,18 @@ module.exports.saveNote = function(req, res) {
     });
 };
 
-module.exports.editNote = function(req, res) {
+module.exports.updateNote = function(req, res) {
     console.log(req.params.id);
+    store.edit(req.params.id, req.body.title, req.body.desc, req.body.priority, req.body.dueTo, req.body.done, function (err, note) {
+        res.redirect("/");
+
+    });
     //update
 
     //id from URL
     //load content from db with id
     //content fill in form
-    showEditform(req, res);
+//    showEditform(req, res);
 };
 
 module.exports.returnJSON = function (req, res) {

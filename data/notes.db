@@ -1,4 +1,5 @@
 {"title":"Testat","description":"WED2-Testat","priority":"5","dueTo":"2016-11-17","state":false,"createDate":"\"2016-11-15T17:36:22.794Z\"","_id":"DHnz6O0InT8ghrvj"}
 {"title":"Testlauf","description":"Hoplahop","priority":"3","dueTo":"2016-12-20","state":false,"createDate":"\"2016-11-15T17:36:22.794Z\"","_id":"JySbpzXFCDlSSZ91"}
-{"title":"kasjdf","description":"ölasjdf","priority":"4","dueTo":"2016-05-18","state":true,"createDate":"\"2016-11-15T21:13:46.316Z\"","_id":"hoSaMloOtyK0GWG5"}
+{"title":"Note","description":"Info an mich","priority":"4","dueTo":"2015-12-01","state":false,"createDate":"\"2016-11-15T21:40:57.280Z\"","_id":"LW2cG0jIIPhrp3XU"}
+{"title":"Test","description":"bla","priority":"5","dueTo":"2016-05-18","createDate":"\"2016-11-15T21:13:46.316Z\"","_id":"hoSaMloOtyK0GWG5"}
 {"title":"Abendessen","description":"Salat und Brot","priority":"4","dueTo":"2016-11-15","state":true,"createDate":"\"2016-11-15T21:13:09.777Z\"","_id":"s3d6Wtvxh5LULSyb"}
