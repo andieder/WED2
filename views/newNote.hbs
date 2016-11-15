@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
     <title>Neue Todo</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../dark.css">
+    <link rel="stylesheet" href="../css/dark.css">
 </head>
 <body>
-{{#with note}}
+
 <form action="/notes{{#if _id}}/edit/{{_id}}{{/if}}" method="post" id="todo" class="form-horizontal">
     <h1>{{#if _id}}Todo ändern{{else}}Neue Todo{{/if}}</h1>
     <hr>
@@ -48,11 +48,11 @@
     </fieldset>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button class="btn btn-default" type="submit">{{#if _id}}Abbruch{{else}}Anlegen{{/if}}</button>
-            <a href="/" class="btn btn-default" type="reset">Abbruch</a>
+            <button class="btn btn-default" type="submit">{{#if _id}}Speichern{{else}}Anlegen{{/if}}</button>
+            <a href="/" class="btn btn-default">Abbruch</a>
         </div>
     </div>
 </form>
-{{/with}}
+
 </body>
 </html>
