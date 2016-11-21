@@ -1,5 +1,5 @@
 *** Ignore node modules and .idea-folder
 
 node_modules/**/*
-.idea
+.idea/**/*
 .gitignore
