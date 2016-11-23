@@ -12,7 +12,7 @@
 	<div class="content">
 		<div class="container1">
 			<a href='/newNote' class="btn btn-default">Create new note</a>
-			<a href='/?switchTheme=true' class="btn btn-default">Style Switcher</a>
+			<a href='/switchTheme' class="btn btn-default">Style Switcher</a>
 		</div>
 		<div class="container2">
 			<div class="sortButtons">
@@ -26,7 +26,7 @@
 					By Importance {{#if orderByImportance}}{{#if orderAsc}}<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>{{else}}<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>{{/if}}{{/if}}
 				</a>
 			</div>
-			<a href='/?switchFilter=true' class="btn btn-default {{#if filterFinished}}active{{/if}}">Fertige verbergen</a>
+			<a href='/filterFinished' class="btn btn-default {{#if filterFinished}}active">Fertige anzeigen{{else}}">Fertige verbergen{{/if}}</a>
 		</div>
 		<div id="noteList" class="noteList">
 			{{#if notes}}
@@ -69,5 +69,6 @@
 			{{/if}}
 		</div>
 	</div>
+    </div>
 </body>
 </html>

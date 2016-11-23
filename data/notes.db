@@ -1,5 +1,10 @@
 {"title":"Testat","description":"WED2-Testat","priority":"5","dueTo":"2016-11-17","state":false,"createDate":"\"2016-11-15T17:36:22.794Z\"","_id":"DHnz6O0InT8ghrvj"}
-{"title":"Testlauf","description":"Hoplahop","priority":"3","dueTo":"2016-12-20","state":false,"createDate":"\"2016-11-15T17:36:22.794Z\"","_id":"JySbpzXFCDlSSZ91"}
+{"title":"Finaltest","description":"asps","priority":"5","dueTo":"24.11.2016","state":false,"createDate":"\"2016-11-23T08:42:53.716Z\"","_id":"IaIbj13WxIf1G3Qb"}
+{"title":"Testlauf","description":"Hop hop","priority":"3","dueTo":"2016-12-20","state":false,"createDate":"\"2016-11-15T17:36:22.794Z\"","_id":"JySbpzXFCDlSSZ91"}
 {"title":"Note","description":"Info an mich","priority":"4","dueTo":"2015-12-01","state":false,"createDate":"\"2016-11-15T21:40:57.280Z\"","_id":"LW2cG0jIIPhrp3XU"}
-{"title":"Test","description":"bla","priority":"5","dueTo":"2016-05-18","createDate":"\"2016-11-15T21:13:46.316Z\"","_id":"hoSaMloOtyK0GWG5"}
-{"title":"Abendessen","description":"Salat und Brot","priority":"4","dueTo":"2016-11-15","state":true,"createDate":"\"2016-11-15T21:13:09.777Z\"","_id":"s3d6Wtvxh5LULSyb"}
+{"title":"Systemtest","description":"WED2 Testat","priority":"4","dueTo":"2016-11-23","state":true,"createDate":"\"2016-11-23T18:08:15.545Z\"","_id":"cF05s1aBNjORQZo1"}
+{"title":"Semesterende","description":"Buch lesen","priority":"3","dueTo":"2016-12-24","state":false,"createDate":"\"2016-11-23T17:52:58.321Z\"","_id":"hVRQyaHoA3SfFbNg"}
+{"title":"Test","description":"bla","priority":"5","dueTo":"2016-05-18","state":false,"createDate":"\"2016-11-15T21:13:46.316Z\"","_id":"hoSaMloOtyK0GWG5"}
+{"title":"Abendessen","description":"Salat und Brot und Senf","priority":"4","dueTo":"2016-11-15","state":"on","createDate":"\"2016-11-15T21:13:09.777Z\"","_id":"s3d6Wtvxh5LULSyb"}
+{"title":"Testlauf","description":"Hop la hop","priority":"3","dueTo":"2016-12-20","state":true,"createDate":"\"2016-11-15T17:36:22.794Z\"","_id":"JySbpzXFCDlSSZ91"}
+{"title":"Semesterende","description":"Buch abholen & lesen","priority":"3","dueTo":"2016-12-24","state":false,"createDate":"\"2016-11-23T17:52:58.321Z\"","_id":"hVRQyaHoA3SfFbNg"}

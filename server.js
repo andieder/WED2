@@ -2,6 +2,8 @@ var http = require('http');
 var hbs = require('express-hbs');
 var express = require('express');
 var path = require('path');
+var session = require('express-session')
+var cookieParser = require('cookie-parser')
 
 var bodyParser = require('body-parser');
 
@@ -37,9 +39,6 @@ app.engine('hbs', hbs.express4());
 app.set('view engine', 'hbs');
 
 
-
-//Session speichern
-
 function methodOverride(req, res) {
     if(req.body && typeof req.body == 'object' && '_method' in req.body){
         var method = req.body._method;
@@ -68,6 +67,8 @@ function myDummyLogger(options) {
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(session({secret:"akwmntilxigmapenqwkmtmznbfyautz", resave: false, saveUninitialized: false}));
 app.use(require("method-override")(methodOverride));
 app.use(myDummyLogger());
 app.use(require('./routes/noteRoutes.js'));
